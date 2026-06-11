@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الحاسبة التفاعلية</title>
+  <meta name="description" content="حاسبة تفاعلية متجاوبة مبنية بـ JavaScript" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/stylelastProject.css">
+  <link rel="stylesheet" href="css/calculator.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+    .hero-section {
+    height: 400px;
+    min-height: 300px;  
+    background-image: url('cards/calculatoraaa.jfif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* filter: blur(2px); */
+}
+  </style>
+ 
+</head>
+<body>
+
+<!-- Navbar -->
+<nav id="navbar" class="navbar navbar-expand-sm navbar-dark sticky-top shadow-sm bg-info bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Yousef</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link " href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shop.html">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="calculator.html">Calculator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item ms-3">
+          <button id="themeBtn" class="btn btn-outline-light">
+            <i class="bi bi-moon-fill"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+    <div class="hero-section"></div>
+
+
+
+<main>
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+
+        <!-- CALCULATOR -->
+        <div class="col-lg-5">
+          <div class="calc-wrapper">
+            <div class="calc-container">
+
+              <!-- Display -->
+              <div class="calc-display" id="calcDisplay">
+                <div class="calc-expression" id="calcExpr"></div>
+                <div class="calc-main" id="calcMain">0</div>
+              </div>
+
+              <!-- Buttons -->
+              <div class="calc-grid">
+                <button class="calc-btn btn-clear" onclick="calcAC()">AC</button>
+                <button class="calc-btn btn-special" onclick="calcToggleSign()">+/-</button>
+                <button class="calc-btn btn-special" onclick="calcPercent()">%</button>
+                <button class="calc-btn btn-op" onclick="calcOp('÷')">÷</button>
+
+                <button class="calc-btn btn-num" onclick="calcNum('7')">7</button>
+                <button class="calc-btn btn-num" onclick="calcNum('8')">8</button>
+                <button class="calc-btn btn-num" onclick="calcNum('9')">9</button>
+                <button class="calc-btn btn-op" onclick="calcOp('×')">×</button>
+
+                <button class="calc-btn btn-num" onclick="calcNum('4')">4</button>
+                <button class="calc-btn btn-num" onclick="calcNum('5')">5</button>
+                <button class="calc-btn btn-num" onclick="calcNum('6')">6</button>
+                <button class="calc-btn btn-op" onclick="calcOp('−')">−</button>
+
+                <button class="calc-btn btn-num" onclick="calcNum('1')">1</button>
+                <button class="calc-btn btn-num" onclick="calcNum('2')">2</button>
+                <button class="calc-btn btn-num" onclick="calcNum('3')">3</button>
+                <button class="calc-btn btn-op btn-eq" onclick="calcEquals()" style="grid-row:span 2;aspect-ratio:unset;padding:12px 0">=</button>
+
+                <button class="calc-btn btn-num btn-zero" onclick="calcNum('0')">0</button>
+                <button class="calc-btn btn-num" onclick="calcDot()">.</button>
+
+              </div>
+
+              <div class="keyboard-hint mt-3">⌨️ يدعم لوحة المفاتيح</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="col-lg-4">
+          <div class="history-panel">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 style="font-weight:800;color:var(--text-dark);margin:0">
+                <i class="bi bi-clock-history me-2 text-primary"></i>سجل العمليات
+              </h5>
+              <button onclick="clearHistory()" style="background:none;border:none;color:var(--danger);font-size:0.82rem;cursor:pointer;font-family:'Cairo',sans-serif;font-weight:700">
+                <i class="bi bi-trash3 me-1"></i>مسح
+              </button>
+            </div>
+            <div id="historyList">
+              <div style="text-align:center;padding:30px;color:var(--text-muted);font-size:0.88rem">
+                <i class="bi bi-calculator" style="font-size:2rem;display:block;margin-bottom:10px;opacity:0.4"></i>
+                لا توجد عمليات بعد
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+<!-- FOOTER -->
+<footer class="mt-5 p-4 text-center">
+  <div class="container">
+    <div class="d-flex justify-content-center gap-3 mb-3">
+      <a href="https://wa.me/+963 962892388" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+      <a href="https://www.facebook.com/yousef.alhussein.965401/?viewas=&should_open_composer=false&show_switched_toast=false&show_invite_to_follow=false&show_switched_tooltip=false&show_podcast_settings=false&show_community_review_changes=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true&locale=ar_AR" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/yousef_alhussei/" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://github.com/yousefAlhussein" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-github"></i>
+      </a>
+      <a href="https://t.me/YousefAl7ussein" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-telegram"></i>
+      </a>
+    </div>
+
+    <p class="mb-0">© 2026 Yousef</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/calculator.js"></script>
+
+  <script src="js/interaction.js"></script>
+</body>
+</html>

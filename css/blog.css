@@ -1,0 +1,64 @@
+    .filter-btn {
+      border: 2px solid #e2e8f0;
+      background: var(--light-card);
+      color: var(--text-muted);
+      border-radius: 50px;
+      padding: 7px 20px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: white;
+    }
+    .article-card {
+      background: var(--light-card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: none;
+      height: 100%;
+    }
+    .article-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .article-img {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; position: relative;
+    }
+    .article-tag {
+      position: absolute; top: 12px; right: 12px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+    }
+    .article-body { padding: 20px; }
+    .article-title { font-weight: 800; font-size: 1.05rem; color: var(--text-dark); margin-bottom: 8px; line-height: 1.5; }
+    .article-excerpt { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+    .article-full { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; display: none; margin-top: 10px; }
+    .read-more-btn {
+      border: none; background: none;
+      color: var(--primary); font-weight: 700;
+      font-size: 0.88rem; cursor: pointer; padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+    .read-more-btn:hover { color: var(--secondary); }
+    .article-meta { font-size: 0.78rem; color: var(--text-muted); display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .search-box {
+      border: 2px solid #e2e8f0;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-family: 'Cairo', sans-serif;
+      background: var(--light-card);
+      color: var(--text-dark);
+      width: 100%;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+    .search-box:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); outline: none; }
+    .no-results { display: none; text-align: center; padding: 60px; color: var(--text-muted); }

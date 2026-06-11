@@ -1,0 +1,157 @@
+/* ===================== */
+/* صورة وهمية */
+/* ===================== */
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+}
+
+/* ===================== */
+/* كارد مع تأثير hover */
+/* ===================== */
+.card-hover {
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card-hover img {
+    transition: transform 0.4s ease;
+}
+
+.card-hover:hover img {
+    transform: scale(1.08);
+}
+
+/* شريط أسفل الكارد عند hover */
+.card::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 0;
+    background: #0d6efd;
+    transition: width 0.3s ease;
+}
+
+.card:hover::after {
+    width: 100%;
+}
+
+/* شكل الكارد */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    overflow: hidden;
+}
+
+/* الصور داخل الكارد */
+.card img {
+    height: 220px;      /* نفس ارتفاع جميع الصور */
+    object-fit: cover;  /* قص الصورة لتناسب الإطار */
+}
+
+/* جسم الكارد */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* ===================== */
+/* انتقال سلس لكل العناصر المهمة */
+/* ===================== */
+html, body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body, .card, .card-body, h1, p, .nav-link, .navbar-brand {
+    transition: all 0.3s ease;
+}
+footer a:hover , nav a:hover {
+  text-shadow: 2px 2px 8px rgba(13, 110, 253, 0.7); /* أزرق Bootstrap */
+  transition: all 0.3s ease;
+  transform: scale(1.2);
+}
+
+/* المحتوى يأخذ المساحة المتبقية */
+.main-content {
+    flex: 1;
+}
+
+/* ===================== */
+/* الوضع النهاري */
+/* ===================== */
+.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.light-mode .card {
+    background-color: #ffffff;
+    color: #212529;
+}
+
+.light-mode .card .card-body {
+    background-color: #ffffff;
+    color: #212529;
+}
+
+.light-mode .nav-link,
+.light-mode .navbar-brand {
+    color: #212529 !important;
+}
+
+/* الفوتر النهاري */
+.light-mode footer {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* ===================== */
+/* الوضع الليلي */
+/* ===================== */
+.dark-mode {
+    background-color: #121212;
+    color: #f8f9fa;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #f8f9fa;
+}
+
+.dark-mode .card .card-body {
+    background-color: #1e1e1e;
+    color: #f8f9fa;
+}
+
+.dark-mode .nav-link,
+.dark-mode .navbar-brand {
+    color: #f8f9fa !important;
+}
+
+/* الفوتر الليلي */
+.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #f8f9fa;
+}
+
+/* ===================== */
+/* الفوتر */
+/* ===================== */
+footer {
+    padding: 1rem 0;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+

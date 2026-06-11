@@ -1,0 +1,46 @@
+    .avatar-wrap {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; margin: 0 auto 20px;
+      box-shadow: 0 8px 30px rgba(37,99,235,0.35);
+    }
+    .skill-bar { background: #e2e8f0; border-radius: 50px; height: 8px; overflow: hidden; margin-bottom: 14px; }
+    .skill-fill {
+      height: 100%;
+      border-radius: 50px;
+      background: linear-gradient(90deg,var(--primary),var(--secondary));
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .skill-label { display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark); }
+    .project-card { border-radius: 14px; overflow: hidden; border: none; box-shadow: var(--shadow); background: var(--light-card); transition: var(--transition); }
+    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .project-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--light-card); border: 2px solid #e2e8f0;
+      border-radius: 50px; padding: 8px 20px;
+      color: var(--text-dark); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .contact-link:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+    .timeline-item { position: relative; padding-right: 30px; padding-bottom: 30px; }
+    .timeline-item::before {
+      content:''; position: absolute; right: 8px; top: 8px; bottom: 0;
+      width: 2px; background: linear-gradient(var(--primary), transparent);
+    }
+    .timeline-dot {
+      position: absolute; right: 0; top: 4px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
+      border: 3px solid var(--light-bg);
+    }
+    .timeline-year { font-size: 0.78rem; font-weight: 700; color: var(--primary); }
+    .section-bg { background: var(--light-card); }
+    .personal-photo{height: 25%;width: 25%; margin-bottom: 10px;}
+    body.dark-mode .section-bg { background: var(--dark-card); }
+    body.dark-mode .skill-bar { background: var(--dark-border); }
+

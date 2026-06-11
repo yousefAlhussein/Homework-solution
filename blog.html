@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المدونة التقنية</title>
+  <meta name="description" content="مدونة تقنية تحتوي على مقالات في تطوير الويب والبرمجة" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/stylelastProject.css">
+  <link rel="stylesheet" href="css/blog.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+    .hero-section {
+    height: 400px;
+    min-height: 300px;  
+    background-image: url('cards/newblog.jfif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* filter: blur(10px); */
+    
+}
+  </style>
+  
+</head>
+<body>
+
+<!-- Navbar -->
+<nav id="navbar" class="navbar navbar-expand-sm navbar-dark sticky-top shadow-sm bg-info bg-dark">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold" href="#">Yousef</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link " href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shop.html">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="calculator.html">Calculator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item ms-3">
+          <button id="themeBtn" class="btn btn-outline-light">
+            <i class="bi bi-moon-fill"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+
+<!-- HERO -->
+ <div class="hero-section"></div>
+<!-- <header class="hero-section text-center" style="padding:60px 0">
+  <div class="container">
+    <div style="font-size:3rem;margin-bottom:16px;">📝</div>
+    <h1 style="font-weight:900;font-size:clamp(1.6rem,4vw,2.5rem)">المدونة التقنية</h1>
+    <p style="opacity:0.85">مقالات في تطوير الويب، البرمجة، وأحدث التقنيات</p>
+  </div>
+</header> -->
+
+<main>
+  <section class="py-5">
+    <div class="container">
+
+      <!-- Search + Filter -->
+      <div class="row g-3 mb-4 align-items-center">
+        <div class="col-md-5">
+          <input type="text" class="search-box" id="searchInput" placeholder="🔍 ابحث في المقالات..." oninput="filterArticles()" />
+        </div>
+        <div class="col-md-7">
+          <div class="d-flex gap-2 flex-wrap">
+            <button class="filter-btn active" data-cat="all" onclick="setFilter(this,'all')">الكل</button>
+            <button class="filter-btn" data-cat="html-css" onclick="setFilter(this,'html-css')">HTML/CSS</button>
+            <button class="filter-btn" data-cat="javascript" onclick="setFilter(this,'javascript')">JavaScript</button>
+            <button class="filter-btn" data-cat="bootstrap" onclick="setFilter(this,'bootstrap')">Bootstrap</button>
+            <button class="filter-btn" data-cat="tools" onclick="setFilter(this,'tools')">أدوات</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Articles count -->
+      <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:20px">
+        عرض <span id="countDisplay">6</span> مقالة
+      </p>
+
+      <!-- Articles Grid -->
+      <div class="row g-4" id="articlesGrid">
+
+        <div class="col-sm-6 col-lg-4 article-item" data-cat="html-css" data-title="دليل شامل لـ CSS Grid Layout">
+          <div class="article-card">
+            <div class="article-img" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)">
+              🎨
+              <span class="article-tag" style="background:#3b82f6">HTML/CSS</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta mb-2">
+                <span><i class="bi bi-calendar3 me-1"></i>15 يناير 2025</span>
+                <span><i class="bi bi-clock me-1"></i>5 دقائق</span>
+              </div>
+              <h3 class="article-title">دليل شامل لـ CSS Grid Layout</h3>
+              <p class="article-excerpt">تعلّم كيفية استخدام CSS Grid لإنشاء تخطيطات ويب معقدة بسهولة وفاعلية...</p>
+              <div class="article-full">
+                CSS Grid هو نظام تخطيط ثنائي الأبعاد يتيح لك ترتيب عناصر الصفحة في صفوف وأعمدة في آنٍ واحد.
+                بفضله، يمكنك إنشاء تخطيطات معقدة كانت تستغرق سابقًا الكثير من الوقت والجهد.
+                يشمل الدليل: grid-template-columns، grid-template-rows، gap، grid-area، وأمثلة عملية متقدمة.
+                استخدامه مع Bootstrap يمنحك مرونة هائلة في تصميم الصفحات.
+              </div>
+              <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+                قراءة المزيد <i class="bi bi-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 article-item" data-cat="javascript" data-title="أساسيات JavaScript الحديثة ES6+">
+          <div class="article-card">
+            <div class="article-img" style="background:linear-gradient(135deg,#f59e0b,#f97316)">
+              ⚡
+              <span class="article-tag" style="background:#f59e0b">JavaScript</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta mb-2">
+                <span><i class="bi bi-calendar3 me-1"></i>10 يناير 2025</span>
+                <span><i class="bi bi-clock me-1"></i>7 دقائق</span>
+              </div>
+              <h3 class="article-title">أساسيات JavaScript الحديثة ES6+</h3>
+              <p class="article-excerpt">مراجعة شاملة لأهم مميزات ES6 وما بعدها التي يجب أن يعرفها كل مطوّر...</p>
+              <div class="article-full">
+                يغطي هذا المقال: Arrow Functions، Destructuring، Spread/Rest Operators، Template Literals،
+                Promises و Async/Await، وOptional Chaining. كل ميزة مع أمثلة كود عملية تساعدك على الفهم السريع.
+                كذلك يشمل الفرق بين var وlet وconst، وكيفية استخدام Modules.
+              </div>
+              <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+                قراءة المزيد <i class="bi bi-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 article-item" data-cat="bootstrap" data-title="Bootstrap 5 الشبكة والتجاوب">
+          <div class="article-card">
+            <div class="article-img" style="background:linear-gradient(135deg,#7c3aed,#ec4899)">
+              📐
+              <span class="article-tag" style="background:#7c3aed">Bootstrap</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta mb-2">
+                <span><i class="bi bi-calendar3 me-1"></i>5 يناير 2025</span>
+                <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+              </div>
+              <h3 class="article-title">Bootstrap 5: الشبكة والتجاوب الكامل</h3>
+              <p class="article-excerpt">كيف تبني صفحات متجاوبة احترافية باستخدام نظام الشبكة في Bootstrap 5...</p>
+              <div class="article-full">
+                نظام الشبكة في Bootstrap 5 مبني على Flexbox ويوفر 12 عمودًا قابلة للتخصيص.
+                يشرح المقال: col، col-sm، col-md، col-lg، col-xl، واستخدام offset وorder وgutter.
+                كذلك breakpoints النظام وكيف تختار الأنسب لمشروعك، مع أمثلة تطبيقية لصفحات كاملة.
+              </div>
+              <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+                قراءة المزيد <i class="bi bi-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 article-item" data-cat="html-css" data-title="تحسين أداء CSS Animations">
+          <div class="article-card">
+            <div class="article-img" style="background:linear-gradient(135deg,#10b981,#3b82f6)">
+              🎬
+              <span class="article-tag" style="background:#10b981">HTML/CSS</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta mb-2">
+                <span><i class="bi bi-calendar3 me-1"></i>28 ديسمبر 2024</span>
+                <span><i class="bi bi-clock me-1"></i>4 دقائق</span>
+              </div>
+              <h3 class="article-title">تحسين أداء CSS Animations</h3>
+              <p class="article-excerpt">تعلّم كيف تصنع حركات سلسة وجميلة دون إبطاء صفحتك أو استهلاك موارد الجهاز...</p>
+              <div class="article-full">
+                أهم مبادئ الأداء: استخدم transform وopacity بدلًا من top/left/width/height.
+                فعّل GPU acceleration بـ will-change. تجنب الـ reflows والـ repaints غير الضرورية.
+                استخدم requestAnimationFrame للحركات المعقدة. واحرص على تطبيق prefers-reduced-motion للوصول الشامل.
+              </div>
+              <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+                قراءة المزيد <i class="bi bi-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="Git و GitHub للمبتدئين">
+          <div class="article-card">
+            <div class="article-img" style="background:linear-gradient(135deg,#1e293b,#334155)">
+              🐙
+              <span class="article-tag" style="background:#64748b">أدوات</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta mb-2">
+                <span><i class="bi bi-calendar3 me-1"></i>20 ديسمبر 2024</span>
+                <span><i class="bi bi-clock me-1"></i>8 دقائق</span>
+              </div>
+              <h3 class="article-title">Git و GitHub للمبتدئين — خطوة بخطوة</h3>
+              <p class="article-excerpt">دليل شامل لتعلم Git وGitHub من الصفر حتى رفع مشروعك الأول على الإنترنت...</p>
+              <div class="article-full">
+                يشمل الدليل: تثبيت Git، إعداد الهوية، init وclone وadd وcommit وpush وpull.
+                كذلك العمل بالفروع (Branches)، المزج (Merge)، وحل تعارضات الكود.
+                وختامًا رفع مشروعك على GitHub Pages لمشاركته مع العالم. الأوامر الأساسية موضحة بأمثلة عملية.
+              </div>
+              <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+                قراءة المزيد <i class="bi bi-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 article-item" data-cat="javascript" data-title="DOM Manipulation في JavaScript">
+          <div class="article-card">
+            <div class="article-img" style="background:linear-gradient(135deg,#ef4444,#f97316)">
+              🔧
+              <span class="article-tag" style="background:#ef4444">JavaScript</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta mb-2">
+                <span><i class="bi bi-calendar3 me-1"></i>15 ديسمبر 2024</span>
+                <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+              </div>
+              <h3 class="article-title">إتقان DOM Manipulation بـ JavaScript</h3>
+              <p class="article-excerpt">كيف تتحكم في عناصر صفحتك ديناميكيًا باستخدام JavaScript الخالص دون أي مكتبات...</p>
+              <div class="article-full">
+                يشرح المقال: querySelector، getElementById، innerHTML وtextContent، addEventListener،
+                createElement وappendChild وremoveChild، تعديل الـ CSS بـ classList، والتنقل في شجرة الـ DOM.
+                مع مثال تطبيقي كامل: بناء قائمة مهام تفاعلية كاملة الوظائف بـ 50 سطر كود فقط.
+              </div>
+              <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+                قراءة المزيد <i class="bi bi-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-sm-6 col-lg-4 article-item" data-cat="html-css" data-title="إتقان Flexbox لبناء واجهات مرنة">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#2563eb,#60a5fa)">
+      📐
+      <span class="article-tag" style="background:#2563eb">HTML/CSS</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>20 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+      </div>
+      <h3 class="article-title">إتقان Flexbox لبناء واجهات مرنة</h3>
+      <p class="article-excerpt">تعلّم كيفية إنشاء تخطيطات مرنة ومتجاوبة باستخدام Flexbox بسهولة...</p>
+      <div class="article-full">
+        يعد Flexbox من أهم تقنيات CSS الحديثة لتنظيم العناصر داخل الحاويات.
+        ستتعلم خصائص justify-content وalign-items وflex-direction وflex-wrap،
+        بالإضافة إلى أمثلة عملية لإنشاء قوائم تنقل وبطاقات متجاوبة.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-lg-4 article-item" data-cat="html-css" data-title="إنشاء وضع Dark Mode باستخدام CSS Variables">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#1e293b,#475569)">
+      🌙
+      <span class="article-tag" style="background:#334155">HTML/CSS</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>18 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>5 دقائق</span>
+      </div>
+      <h3 class="article-title">إنشاء وضع Dark Mode باستخدام CSS Variables</h3>
+      <p class="article-excerpt">طريقة احترافية لإضافة الوضع الليلي إلى موقعك بأقل كمية من الكود...</p>
+      <div class="article-full">
+        ستتعرف على CSS Variables وكيفية استخدامها لتغيير ألوان الموقع ديناميكياً.
+        كما ستتعلم حفظ تفضيلات المستخدم باستخدام Local Storage
+        وتطبيق الثيم تلقائياً عند زيارة الموقع.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-lg-4 article-item" data-cat="javascript" data-title="التعامل مع DOM باحترافية">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#f59e0b,#f97316)">
+      ⚡
+      <span class="article-tag" style="background:#f59e0b">JavaScript</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>16 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>8 دقائق</span>
+      </div>
+      <h3 class="article-title">التعامل مع DOM باحترافية</h3>
+      <p class="article-excerpt">فهم كيفية الوصول إلى عناصر الصفحة وتعديلها باستخدام JavaScript...</p>
+      <div class="article-full">
+        يغطي هذا المقال طرق اختيار العناصر باستخدام querySelector،
+        وإضافة الأحداث Event Listeners، وتعديل المحتوى والأنماط،
+        وإنشاء عناصر جديدة وإضافتها ديناميكياً إلى الصفحة.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-lg-4 article-item" data-cat="bootstrap" data-title="بناء لوحة تحكم باستخدام Bootstrap">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">
+      📊
+      <span class="article-tag" style="background:#7c3aed">Bootstrap</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>14 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>9 دقائق</span>
+      </div>
+      <h3 class="article-title">بناء لوحة تحكم باستخدام Bootstrap</h3>
+      <p class="article-excerpt">تعرف على كيفية إنشاء Dashboard احترافية ومتجاوبة بسرعة...</p>
+      <div class="article-full">
+        يشرح المقال استخدام Grid System وبطاقات الإحصائيات والجداول
+        والقوائم الجانبية لإنشاء لوحة تحكم متكاملة تناسب مختلف أحجام الشاشات.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="دليل Git و GitHub للمبتدئين">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#111827,#374151)">
+      🔧
+      <span class="article-tag" style="background:#111827">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>12 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>10 دقائق</span>
+      </div>
+      <h3 class="article-title">دليل Git و GitHub للمبتدئين</h3>
+      <p class="article-excerpt">تعلم أساسيات إدارة الإصدارات ومشاركة المشاريع البرمجية...</p>
+      <div class="article-full">
+        ستتعرف على إنشاء المستودعات، تنفيذ Commit وPush وPull،
+        استخدام الفروع Branches ودمج التعديلات،
+        وأفضل الممارسات للعمل الجماعي على GitHub.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========================= -->
+<!-- Article 11 -->
+<!-- ========================= -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="javascript" data-title="فهم Event Loop في JavaScript">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#f59e0b,#ea580c)">
+      🔄
+      <span class="article-tag" style="background:#f59e0b">JavaScript</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>22 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>8 دقائق</span>
+      </div>
+      <h3 class="article-title">فهم Event Loop في JavaScript</h3>
+      <p class="article-excerpt">اكتشف كيف تنفذ JavaScript العمليات غير المتزامنة خلف الكواليس...</p>
+      <div class="article-full">
+        يشرح المقال مفهوم Call Stack وCallback Queue وMicrotasks،
+        وكيف تتعامل JavaScript مع العمليات غير المتزامنة مثل setTimeout وPromises.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 12 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="javascript" data-title="التعامل مع Fetch API">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#f97316,#fb923c)">
+      🌐
+      <span class="article-tag" style="background:#f97316">JavaScript</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>23 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>7 دقائق</span>
+      </div>
+      <h3 class="article-title">التعامل مع Fetch API</h3>
+      <p class="article-excerpt">تعلم جلب البيانات من الخوادم باستخدام JavaScript الحديثة...</p>
+      <div class="article-full">
+        ستتعرف على إرسال طلبات GET وPOST واستقبال البيانات بصيغة JSON
+        ومعالجة الأخطاء وبناء تطبيقات تعتمد على واجهات API.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 13 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="javascript" data-title="التخزين المحلي Local Storage">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#d97706,#f59e0b)">
+      💾
+      <span class="article-tag" style="background:#d97706">JavaScript</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>24 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+      </div>
+      <h3 class="article-title">التخزين المحلي Local Storage</h3>
+      <p class="article-excerpt">احفظ بيانات المستخدم داخل المتصفح دون الحاجة إلى قاعدة بيانات...</p>
+      <div class="article-full">
+        يشرح المقال كيفية تخزين واسترجاع وحذف البيانات باستخدام Local Storage
+        مع أمثلة عملية لتطبيقات المهام والمفضلة والإعدادات.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 14 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="javascript" data-title="البرمجة الكائنية OOP في JavaScript">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#fb7185,#ec4899)">
+      🧩
+      <span class="article-tag" style="background:#ec4899">JavaScript</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>25 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>10 دقائق</span>
+      </div>
+      <h3 class="article-title">البرمجة الكائنية OOP في JavaScript</h3>
+      <p class="article-excerpt">تعرف على Classes وObjects وInheritance بطريقة عملية...</p>
+      <div class="article-full">
+        يغطي المقال إنشاء الكائنات والوراثة والتغليف واستخدام Classes الحديثة
+        لبناء تطبيقات أكثر تنظيماً وقابلية للتطوير.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 15 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="javascript" data-title="إنشاء آلة حاسبة تفاعلية">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#ef4444,#f97316)">
+      🧮
+      <span class="article-tag" style="background:#ef4444">JavaScript</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>26 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>9 دقائق</span>
+      </div>
+      <h3 class="article-title">إنشاء آلة حاسبة تفاعلية</h3>
+      <p class="article-excerpt">مشروع عملي لتطبيق مفاهيم JavaScript الأساسية...</p>
+      <div class="article-full">
+        تعلم إنشاء آلة حاسبة تدعم العمليات الأساسية وإدارة المدخلات
+        ومعالجة الأحداث وتحسين تجربة المستخدم.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 16 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="bootstrap" data-title="إنشاء Navbar احترافية">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#7c3aed,#8b5cf6)">
+      🧭
+      <span class="article-tag" style="background:#7c3aed">Bootstrap</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>27 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>5 دقائق</span>
+      </div>
+      <h3 class="article-title">إنشاء Navbar احترافية</h3>
+      <p class="article-excerpt">بناء قوائم تنقل متجاوبة لجميع الأجهزة بسهولة...</p>
+      <div class="article-full">
+        ستتعرف على مكونات Navbar في Bootstrap وكيفية تخصيصها
+        وإضافة القوائم المنسدلة وأزرار تسجيل الدخول.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 17 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="bootstrap" data-title="بطاقات Bootstrap الاحترافية">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#9333ea,#c084fc)">
+      🪪
+      <span class="article-tag" style="background:#9333ea">Bootstrap</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>28 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+      </div>
+      <h3 class="article-title">بطاقات Bootstrap الاحترافية</h3>
+      <p class="article-excerpt">إنشاء بطاقات جذابة لعرض المنتجات والمقالات والخدمات...</p>
+      <div class="article-full">
+        تعلم تصميم بطاقات احترافية وإضافة الصور والأزرار
+        وتنظيم المحتوى باستخدام مكونات Bootstrap الجاهزة.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 18 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="bootstrap" data-title="استخدام Bootstrap Icons">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#6366f1,#818cf8)">
+      🎯
+      <span class="article-tag" style="background:#6366f1">Bootstrap</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>29 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>4 دقائق</span>
+      </div>
+      <h3 class="article-title">استخدام Bootstrap Icons</h3>
+      <p class="article-excerpt">أضف أيقونات احترافية إلى موقعك بسهولة...</p>
+      <div class="article-full">
+        يشرح المقال كيفية تضمين مكتبة Bootstrap Icons
+        واستخدامها في الأزرار والقوائم والنماذج بطريقة احترافية.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 19 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="bootstrap" data-title="تخصيص Bootstrap Theme">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#4f46e5,#7c3aed)">
+      🎨
+      <span class="article-tag" style="background:#4f46e5">Bootstrap</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>30 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>8 دقائق</span>
+      </div>
+      <h3 class="article-title">تخصيص Bootstrap Theme</h3>
+      <p class="article-excerpt">غيّر ألوان وخطوط Bootstrap لتناسب هوية مشروعك...</p>
+      <div class="article-full">
+        تعلم تعديل المتغيرات الافتراضية وإنشاء تصميم مخصص
+        يمنح مشروعك مظهراً فريداً بعيداً عن القوالب التقليدية.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 20 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="bootstrap" data-title="إنشاء Modals احترافية">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
+      🪟
+      <span class="article-tag" style="background:#8b5cf6">Bootstrap</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>31 يناير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>5 دقائق</span>
+      </div>
+      <h3 class="article-title">إنشاء Modals احترافية</h3>
+      <p class="article-excerpt">تعلم استخدام النوافذ المنبثقة لعرض المحتوى والتأكيدات...</p>
+      <div class="article-full">
+        يغطي المقال إنشاء النوافذ المنبثقة وربطها بالأزرار
+        وإضافة النماذج والصور داخلها وتحسين تجربة المستخدم.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========================= -->
+<!-- Article 21 -->
+<!-- ========================= -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="دليل استخدام Git للمطورين">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#111827,#374151)">
+      🔀
+      <span class="article-tag" style="background:#111827">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>1 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>8 دقائق</span>
+      </div>
+      <h3 class="article-title">دليل استخدام Git للمطورين</h3>
+      <p class="article-excerpt">تعرف على أساسيات إدارة الإصدارات وتتبع التغييرات في المشاريع البرمجية...</p>
+      <div class="article-full">
+        يغطي المقال أوامر Git الأساسية مثل init وcommit وpush وpull وmerge،
+        مع شرح عملي لكيفية إدارة المشاريع والعمل الجماعي بكفاءة.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 22 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="مقدمة إلى GitHub">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#1f2937,#4b5563)">
+      🐙
+      <span class="article-tag" style="background:#1f2937">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>2 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+      </div>
+      <h3 class="article-title">مقدمة إلى GitHub</h3>
+      <p class="article-excerpt">تعلم كيفية استضافة المشاريع البرمجية ومشاركتها مع الآخرين...</p>
+      <div class="article-full">
+        ستتعرف على إنشاء المستودعات وإدارة الفروع وإرسال Pull Requests
+        والتعاون مع المطورين في المشاريع المفتوحة المصدر.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 23 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="أسرار Visual Studio Code">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#2563eb,#3b82f6)">
+      💻
+      <span class="article-tag" style="background:#2563eb">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>3 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>7 دقائق</span>
+      </div>
+      <h3 class="article-title">أسرار Visual Studio Code</h3>
+      <p class="article-excerpt">زيادة الإنتاجية باستخدام أفضل إضافات ومميزات VS Code...</p>
+      <div class="article-full">
+        يشرح المقال أهم الاختصارات والإضافات وأدوات التصحيح Debugging
+        وكيفية تخصيص بيئة العمل لتناسب احتياجات المطورين.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 24 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="احتراف Postman لاختبار APIs">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#ea580c,#fb923c)">
+      📡
+      <span class="article-tag" style="background:#ea580c">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>4 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>8 دقائق</span>
+      </div>
+      <h3 class="article-title">احتراف Postman لاختبار APIs</h3>
+      <p class="article-excerpt">أداة أساسية للمطورين لاختبار واجهات البرمجة بسرعة وكفاءة...</p>
+      <div class="article-full">
+        تعلم إرسال الطلبات وتحليل الاستجابات وإدارة المتغيرات
+        وإنشاء مجموعات اختبارات لتطوير التطبيقات الحديثة.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 25 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="التصميم باستخدام Figma">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#9333ea,#ec4899)">
+      🎨
+      <span class="article-tag" style="background:#9333ea">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>5 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>7 دقائق</span>
+      </div>
+      <h3 class="article-title">التصميم باستخدام Figma</h3>
+      <p class="article-excerpt">إنشاء واجهات احترافية ونماذج أولية للمواقع والتطبيقات...</p>
+      <div class="article-full">
+        ستتعلم إنشاء التصميمات ومشاركة المشاريع مع الفريق
+        وتحويل الأفكار إلى نماذج قابلة للتطوير والتنفيذ.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 26 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="استخدام Chrome DevTools">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#16a34a,#22c55e)">
+      🔍
+      <span class="article-tag" style="background:#16a34a">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>6 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+      </div>
+      <h3 class="article-title">استخدام Chrome DevTools</h3>
+      <p class="article-excerpt">تعرف على أدوات المتصفح لتحليل وتصحيح أخطاء المواقع...</p>
+      <div class="article-full">
+        يشرح المقال فحص العناصر وتحليل الأداء ومراقبة الشبكة
+        واكتشاف الأخطاء البرمجية وتحسين سرعة تحميل الصفحات.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 27 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="مقدمة إلى Docker">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#0284c7,#38bdf8)">
+      🐳
+      <span class="article-tag" style="background:#0284c7">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>7 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>9 دقائق</span>
+      </div>
+      <h3 class="article-title">مقدمة إلى Docker</h3>
+      <p class="article-excerpt">تشغيل التطبيقات داخل حاويات مستقلة وسهلة النشر...</p>
+      <div class="article-full">
+        ستتعرف على Images وContainers وDocker Compose
+        وكيفية إنشاء بيئات تطوير متطابقة على جميع الأجهزة.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 28 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="الذكاء الاصطناعي للمطورين">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#0f172a,#475569)">
+      🤖
+      <span class="article-tag" style="background:#0f172a">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>8 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>10 دقائق</span>
+      </div>
+      <h3 class="article-title">الذكاء الاصطناعي للمطورين</h3>
+      <p class="article-excerpt">كيف تساعد أدوات الذكاء الاصطناعي في تسريع تطوير البرمجيات...</p>
+      <div class="article-full">
+        يناقش المقال أدوات توليد الأكواد وتصحيح الأخطاء
+        وتحليل المشاريع وتحسين الإنتاجية اليومية للمطورين.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 29 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="إدارة المشاريع باستخدام Trello">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#2563eb,#60a5fa)">
+      📋
+      <span class="article-tag" style="background:#2563eb">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>9 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>5 دقائق</span>
+      </div>
+      <h3 class="article-title">إدارة المشاريع باستخدام Trello</h3>
+      <p class="article-excerpt">نظّم مهام فريقك وتتبع تقدم العمل بطريقة مرئية...</p>
+      <div class="article-full">
+        تعلم إنشاء اللوحات والقوائم والبطاقات
+        ومتابعة المشاريع البرمجية من التخطيط حتى التسليم.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Article 30 -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="مقدمة إلى Notion للمطورين">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#374151,#6b7280)">
+      📝
+      <span class="article-tag" style="background:#374151">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>10 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+      </div>
+      <h3 class="article-title">مقدمة إلى Notion للمطورين</h3>
+      <p class="article-excerpt">أداة قوية لتوثيق المشاريع وتنظيم المعرفة التقنية...</p>
+      <div class="article-full">
+        يوضح المقال كيفية إنشاء قواعد بيانات وصفحات توثيق
+        وإدارة المهام والأفكار التقنية داخل بيئة عمل موحدة.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- ========================= -->
+<!-- Article 31 -->
+<!-- ========================= -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="مقدمة إلى Jira لإدارة فرق التطوير">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#0052cc,#2684ff)">
+      🚀
+      <span class="article-tag" style="background:#0052cc">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>11 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>7 دقائق</span>
+      </div>
+      <h3 class="article-title">مقدمة إلى Jira لإدارة فرق التطوير</h3>
+      <p class="article-excerpt">تعرف على واحدة من أشهر أدوات إدارة المشاريع البرمجية في العالم...</p>
+      <div class="article-full">
+        يشرح المقال إنشاء المشاريع وإدارة المهام وتتبع الأخطاء
+        واستخدام لوحات Scrum وKanban لتحسين سير العمل داخل الفرق التقنية.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================= -->
+<!-- Article 32 -->
+<!-- ========================= -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="أتمتة المهام باستخدام GitHub Actions">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#24292f,#57606a)">
+      ⚙️
+      <span class="article-tag" style="background:#24292f">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>12 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>8 دقائق</span>
+      </div>
+      <h3 class="article-title">أتمتة المهام باستخدام GitHub Actions</h3>
+      <p class="article-excerpt">اجعل عمليات البناء والاختبار والنشر تتم تلقائياً...</p>
+      <div class="article-full">
+        ستتعلم كيفية إنشاء Workflows وتشغيل الاختبارات تلقائياً
+        ونشر المشاريع مباشرة بعد رفع التحديثات إلى GitHub.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================= -->
+<!-- Article 33 -->
+<!-- ========================= -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="التعرف على Vite لتطوير الواجهات الحديثة">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#646cff,#8b5cf6)">
+      ⚡
+      <span class="article-tag" style="background:#646cff">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>13 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>6 دقائق</span>
+      </div>
+      <h3 class="article-title">التعرف على Vite لتطوير الواجهات الحديثة</h3>
+      <p class="article-excerpt">بيئة تطوير سريعة أصبحت الخيار المفضل للعديد من المطورين...</p>
+      <div class="article-full">
+        يناقش المقال مزايا Vite مقارنة بالأدوات التقليدية،
+        وسرعة التشغيل وإعادة التحميل الفوري ودعم المشاريع الحديثة.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================= -->
+<!-- Article 34 -->
+<!-- ========================= -->
+<div class="col-sm-6 col-lg-4 article-item" data-cat="tools" data-title="أفضل بيئة عمل للمطورين في عام 2025">
+  <div class="article-card">
+    <div class="article-img" style="background:linear-gradient(135deg,#0f172a,#334155)">
+      🖥️
+      <span class="article-tag" style="background:#0f172a">أدوات</span>
+    </div>
+    <div class="article-body">
+      <div class="article-meta mb-2">
+        <span><i class="bi bi-calendar3 me-1"></i>14 فبراير 2025</span>
+        <span><i class="bi bi-clock me-1"></i>9 دقائق</span>
+      </div>
+      <h3 class="article-title">أفضل بيئة عمل للمطورين في عام 2025</h3>
+      <p class="article-excerpt">دليل متكامل لاختيار الأدوات التي تزيد إنتاجيتك اليومية...</p>
+      <div class="article-full">
+        يستعرض المقال أفضل المحررات والأدوات والخدمات السحابية
+        وإضافات المتصفح ومنصات الذكاء الاصطناعي التي يعتمد عليها المطورون المحترفون.
+      </div>
+      <button class="read-more-btn mt-2" onclick="toggleArticle(this)">
+        قراءة المزيد <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+      </div><!-- end grid -->
+
+      <div class="no-results" id="noResults">
+        <div style="font-size:3rem;margin-bottom:16px;">🔍</div>
+        <p>لا توجد مقالات تطابق بحثك. جرّب كلمة أخرى.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="mt-5 p-4 text-center">
+  <div class="container">
+    <div class="d-flex justify-content-center gap-3 mb-3">
+      <a href="https://wa.me/+963 962892388" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+      <a href="https://www.facebook.com/yousef.alhussein.965401/?viewas=&should_open_composer=false&show_switched_toast=false&show_invite_to_follow=false&show_switched_tooltip=false&show_podcast_settings=false&show_community_review_changes=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true&locale=ar_AR" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/yousef_alhussei/" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://github.com/yousefAlhussein" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-github"></i>
+      </a>
+      <a href="https://t.me/YousefAl7ussein" target="_blank" class="text-decoration-none text-reset fs-4">
+        <i class="bi bi-telegram"></i>
+      </a>
+    </div>
+
+    <p class="mb-0">© 2026 Yousef</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/blog.js"></script>
+  <script src="js/interaction.js"></script>
+  
+</body>
+</html>
